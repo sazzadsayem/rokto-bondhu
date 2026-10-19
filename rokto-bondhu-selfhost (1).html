@@ -210,8 +210,8 @@ $("cov").onclick=function(e){if(e.target===this)this.classList.remove("show")};
 $("ccopy").onclick=function(){var b=this,p=b.dataset.p;try{navigator.clipboard.writeText(p).then(function(){b.textContent="✅ কপি হয়েছে"},function(){b.textContent="নম্বরটি চেপে ধরে কপি করুন"})}catch(x){b.textContent="নম্বরটি চেপে ধরে কপি করুন"}};
 try{donors=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){}
 render();
-var FB={apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT_ID.firebaseapp.com",projectId:"YOUR_PROJECT_ID"};
-try{if(FB.apiKey!=="YOUR_API_KEY"&&window.firebase){firebase.initializeApp(FB);col=firebase.firestore().collection("donors");col.orderBy("ts","desc").limit(500).onSnapshot(function(s){donors=s.docs.map(function(x){return x.data()});render()},function(){})}}catch(e){}
+var FB={apiKey:"AIzaSyDtez0fmETMBXmPrVR3J44Q6Yh1eEC_ehw",authDomain:"rokto-bondhu-f061b.firebaseapp.com",projectId:"rokto-bondhu-f061b"};
+try{if(FB.apiKey.indexOf("YOUR_")!==0&&window.firebase){firebase.initializeApp(FB);col=firebase.firestore().collection("donors");col.orderBy("ts","desc").limit(500).onSnapshot(function(s){donors=s.docs.map(function(x){return x.data()});render()},function(){})}}catch(e){}
 if(!col)$("demo").style.display="block";
 </script>
 </body>
