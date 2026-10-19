@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>রক্তবন্ধু – রক্তদাতা নেটওয়ার্ক</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#faf5f1;--card:#fff;--tx:#2b1613;--mu:#8a6d68;--red:#c9102d;--red2:#8f0a20;--bd:#eddcd5;--chip:#fbe9e6;--ok:#157a43;--okbg:#e3f5ea;--wait:#9a5b00;--waitbg:#fff0d6;--sh:0 10px 30px -12px rgba(110,25,25,.25);--bar:rgba(250,245,241,.93);color-scheme:light;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px);scroll-behavior:smooth}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140a0a;--card:#221213;--tx:#f8ece9;--mu:#c8a8a3;--bd:#3f2426;--chip:#36191b;--ok:#6fe0a0;--okbg:#10301f;--wait:#ffc766;--waitbg:#3a2a0b;--red:#f04a63;--red2:#c92c45;--sh:0 10px 30px -12px rgba(0,0,0,.6);--bar:rgba(20,10,10,.93);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#140a0a;--card:#221213;--tx:#f8ece9;--mu:#c8a8a3;--bd:#3f2426;--chip:#36191b;--ok:#6fe0a0;--okbg:#10301f;--wait:#ffc766;--waitbg:#3a2a0b;--red:#f04a63;--red2:#c92c45;--sh:0 10px 30px -12px rgba(0,0,0,.6);--bar:rgba(20,10,10,.93);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bar);z-index:10}
+button,select,input{font:inherit}
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 85% 0%,#e8213f 0%,#b10c27 45%,#6e0618 100%);color:#fff;padding:calc(30px + env(safe-area-inset-top,0px)) 22px 90px}
+.hero .in{max-width:780px;margin:0 auto;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}
+.brand svg{width:34px;height:34px}
+.hero h1{margin:26px 0 10px;font-size:clamp(30px,8vw,48px);line-height:1.15;font-weight:700;max-width:12em}
+.hero p{margin:0;max-width:30em;opacity:.9;font-size:17px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.cta a,.cta button{border:0;border-radius:14px;padding:13px 22px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none}
+.b1{background:#fff;color:#a80c25}
+.b2{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.4)!important}
+.drop{position:absolute;right:-30px;bottom:-50px;width:280px;opacity:.12}
+.wrap{max-width:780px;margin:-56px auto 0;padding:0 16px 120px;position:relative}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--card);border-radius:20px;box-shadow:var(--sh);border:1px solid var(--bd);overflow:hidden}
+.st{padding:16px 6px;text-align:center}
+.st+.st{border-left:1px solid var(--bd)}
+.st b{display:block;font-size:28px;color:var(--red);line-height:1.1}
+.st span{font-size:13px;color:var(--mu)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:18px -16px 0;padding:10px 16px 8px;border-bottom:1px solid var(--bd)}
+.scroll{display:flex;gap:8px;overflow-x:auto;padding:2px 0 7px;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.t{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:7px 16px;cursor:pointer;font-weight:500}
+.t.on{background:var(--tx);border-color:var(--tx);color:var(--bg)}
+.g{flex:none;border:1.5px solid var(--bd);background:var(--card);color:var(--red);border-radius:14px;padding:5px 0;width:56px;cursor:pointer;font-weight:700;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.g small{font-size:11px;font-weight:500;color:var(--mu)}
+.g.on{background:var(--red);border-color:var(--red);color:#fff}
+.g.on small{color:#ffd9de}
+.srch{display:flex;gap:8px}
+select,input{width:100%;padding:11px 14px;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);outline:none}
+select:focus,input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(201,16,45,.18)}
+.comp{display:none;align-items:center;gap:8px;font-size:14px;color:var(--mu);padding-top:6px}
+.comp.show{display:flex}
+.comp input{width:18px;height:18px;padding:0;accent-color:var(--red)}
+.hd{display:flex;justify-content:space-between;align-items:baseline;margin:20px 2px 4px}
+.hd h2{margin:0;font-size:20px}
+.hd span{color:var(--mu);font-size:14px}
+.list{display:grid;gap:12px;margin-top:8px}
+@media(min-width:640px){.list{grid-template-columns:1fr 1fr}}
+.d{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:14px;box-shadow:var(--sh);animation:in .35s both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+@media(prefers-reduced-motion:reduce){.d{animation:none}html{scroll-behavior:auto}}
+.top{display:flex;align-items:center;gap:12px}
+.av{flex:none;width:48px;height:48px;border-radius:50%;background:var(--chip);color:var(--red);display:grid;place-items:center;font-weight:700;font-size:20px}
+.info{flex:1;min-width:0}
+.nm{font-weight:600;font-size:17px;overflow-wrap:anywhere;line-height:1.3}
+.lc{color:var(--mu);font-size:14px}
+.bg{flex:none;min-width:50px;text-align:center;padding:7px 10px;border-radius:12px;background:linear-gradient(150deg,var(--red),var(--red2));color:#fff;font-weight:700;font-size:18px}
+.mid{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin-top:12px}
+.badge{align-self:flex-start;font-size:13px;font-weight:500;padding:3px 10px;border-radius:999px}
+.badge.ok{background:var(--okbg);color:var(--ok)}
+.badge.wt{background:var(--waitbg);color:var(--wait)}
+.acts{display:flex;gap:8px}
+.ic{height:40px;padding:0 16px;border-radius:12px;display:flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:15px;background:var(--chip);color:var(--red)}
+.ic.c{background:var(--red);color:#fff}
+.acts .ic{flex:1;justify-content:center;padding:0 8px;font-size:14px;white-space:nowrap}
+.ic.wa{background:#1f9d55;color:#fff}
+.ic.tg{background:#2a8fd6;color:#fff}
+.empty{grid-column:1/-1;text-align:center;color:var(--mu);padding:44px 12px;background:var(--card);border:1.5px dashed var(--bd);border-radius:20px}
+.info-box{margin-top:26px;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:4px 16px}
+.info-box summary{cursor:pointer;font-weight:600;padding:12px 0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:12px}
+.tbl td{padding:7px 4px;border-top:1px solid var(--bd)}
+.tbl td:first-child{font-weight:700;color:var(--red);width:64px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:linear-gradient(150deg,var(--red),var(--red2));color:#fff;border:0;border-radius:999px;padding:15px 24px;font-weight:700;font-size:16px;box-shadow:0 10px 24px rgba(201,16,45,.45);cursor:pointer;z-index:12}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center;z-index:30}
+.ov.show{display:flex}
+.sheet{background:var(--card);width:100%;max-width:500px;border-radius:26px 26px 0 0;padding:22px 20px calc(20px + env(safe-area-inset-bottom,0px));max-height:92vh;overflow:auto;animation:up .25s}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(min-width:600px){.ov{align-items:center}.sheet{border-radius:26px}}
+.sheet h2{margin:0;color:var(--red)}
+label{display:block;margin:12px 0 4px;font-size:14px;color:var(--mu);font-weight:500}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{display:flex;gap:10px;margin-top:18px}
+.row button{flex:1;padding:13px;border-radius:12px;border:1px solid var(--bd);cursor:pointer;background:var(--card);color:var(--tx)}
+.row .ok{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
+.note{font-size:12.5px;color:var(--mu);margin-top:12px;background:var(--chip);padding:8px 10px;border-radius:10px}
+.err{color:var(--red);font-size:14px;min-height:20px;margin-top:6px}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#1f9d55;color:#fff;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:40;font-weight:500}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 0}
+</style>
+</head>
+<body>
+<div class="hero"><div class="in">
+  <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C32 4 12 26 12 40a20 20 0 0 0 40 0C52 26 32 4 32 4z" fill="#fff"/><path d="M32 24v22M21 35h22" stroke="#b10c27" stroke-width="6" stroke-linecap="round"/></svg>রক্তবন্ধু</div>
+  <h1>একটি ফোনকল, একটি জীবন বাঁচাতে পারে</h1>
+  <p>বরিশাল বিভাগের স্বেচ্ছাসেবী রক্তদাতাদের নেটওয়ার্ক। প্রয়োজনে কাছের দাতাকে খুঁজে নিন।</p>
+  <div class="cta"><a class="b1" href="#find">🔍 রক্ত খুঁজুন</a><button class="b2" id="add2">＋ দাতা হোন</button></div>
+</div>
+<svg class="drop" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4C32 4 12 26 12 40a20 20 0 0 0 40 0C52 26 32 4 32 4z" fill="#fff"/></svg></div>
+<div class="wrap">
+  <div id="demo" style="display:none;background:var(--waitbg);color:var(--wait);padding:10px 14px;border-radius:14px;margin-bottom:12px;font-size:14px">⚠️ ডেমো মোড: Firebase সেট করা হয়নি, তাই তথ্য শুধু এই ডিভাইসে থাকবে।</div>
+  <div class="stats">
+    <div class="st"><b id="c1">০</b><span>দাতা</span></div>
+    <div class="st"><b id="c2">০</b><span>উপজেলা</span></div>
+    <div class="st"><b id="c3">০</b><span>ব্লাড গ্রুপ</span></div>
+  </div>
+  <div class="bar" id="find">
+    <div class="scroll" id="tabs"></div>
+    <div class="scroll" id="groups"></div>
+    <div class="srch"><input id="q" placeholder="🔍 নাম খুঁজুন"><select id="up"></select></div>
+    <label class="comp" id="comp"><input type="checkbox" id="cb"><span id="cbt"></span></label>
+  </div>
+  <div class="hd"><h2>রক্তদাতা তালিকা</h2><span id="hint"></span></div>
+  <div class="list" id="list"></div>
+  <details class="info-box"><summary>🧬 কে কাকে রক্ত দিতে পারে?</summary>
+    <table class="tbl" id="tbl"></table></details>
+  <footer>রক্তদাতার তথ্য শুধু রক্তদানের প্রয়োজনে ব্যবহার করুন। 🩸<br>সাধারণত ৩ মাস পরপর রক্ত দেওয়া যায়।<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--bd)">Designed by <a href="https://sazzadsayem.bio.link/" target="_blank" rel="noopener" style="color:var(--red);font-weight:600;text-decoration:none">Sazzad Sayem</a></div></footer>
+</div>
+<button class="fab" id="add">＋ দাতা হোন</button>
+<div class="ov" id="cov"><div class="sheet" style="text-align:center"><div style="color:var(--mu)">কল করুন</div><h2 id="cn" style="margin:4px 0"></h2><div id="cp" style="font-size:30px;font-weight:700;letter-spacing:1px;margin:8px 0;user-select:all"></div><div class="row"><button id="ccopy">📋 নম্বর কপি</button><a id="ct" class="ic c" style="flex:1;justify-content:center;height:auto;padding:13px" target="_blank" rel="noopener">📞 কল করুন</a></div><div class="row"><button id="cclose">বন্ধ করুন</button></div></div></div>
+<div class="toast" id="toast">ধন্যবাদ! আপনার নাম যুক্ত হয়েছে।</div>
+
+<div class="ov" id="ov"><div class="sheet">
+  <h2>রক্তদাতা</h2>
+  <label>নাম</label><input id="fn" maxlength="60" placeholder="আপনার পূর্ণ নাম">
+  <div class="two"><div><label>রক্তের গ্রুপ</label><select id="fb"></select></div><div><label>জেলা</label><select id="fd"></select></div></div>
+  <label>উপজেলা</label><select id="fu"></select>
+  <label>মোবাইল (১১ ডিজিট)</label><input id="fp" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
+  <label>সর্বশেষ রক্ত দিয়েছেন (না দিলে খালি রাখুন)</label><input id="fl" type="date">
+  <div class="note">এই তথ্য সবাই দেখতে পাবে। রক্ত দিতে ইচ্ছুক হলেই জমা দিন।</div>
+  <div class="err" id="err"></div>
+  <div class="row"><button id="cancel">বাতিল</button><button class="ok" id="save">জমা দিন</button></div>
+</div></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+var D={"বরিশাল":["বরিশাল সদর","বাকেরগঞ্জ","বাবুগঞ্জ","উজিরপুর","বানারীপাড়া","গৌরনদী","আগৈলঝাড়া","মেহেন্দিগঞ্জ","মুলাদী","হিজলা"],
+"ভোলা":["ভোলা সদর","বোরহানউদ্দিন","চরফ্যাশন","দৌলতখান","তজুমদ্দিন","লালমোহন","মনপুরা"],
+"পটুয়াখালী":["পটুয়াখালী সদর","বাউফল","গলাচিপা","কলাপাড়া","মির্জাগঞ্জ","দশমিনা","রাঙ্গাবালী","দুমকি"],
+"পিরোজপুর":["পিরোজপুর সদর","নেছারাবাদ (স্বরূপকাঠী)","মঠবাড়িয়া","ভাণ্ডারিয়া","কাউখালী","জিয়ানগর (ইন্দুরকানি)","নাজিরপুর"],
+"বরগুনা":["বরগুনা সদর","আমতলী","বেতাগী","পাথরঘাটা","বামনা","তালতলী"],
+"ঝালকাঠি":["ঝালকাঠি সদর","নলছিটি","রাজাপুর","কাঁঠালিয়া"]};
+var BG=["A+","A-","B+","B-","AB+","AB-","O+","O-"];
+var COMP={"A+":["A+","A-","O+","O-"],"A-":["A-","O-"],"B+":["B+","B-","O+","O-"],"B-":["B-","O-"],"AB+":BG,"AB-":["A-","B-","AB-","O-"],"O+":["O+","O-"],"O-":["O-"]};
+var st={dist:"",bg:"",up:"",q:"",comp:false},donors=[],col=null,KEY="rb-donors";
+function $(i){return document.getElementById(i)}
+function bn(n){return String(n).replace(/\d/g,function(d){return "০১২৩৪৫৬৭৮৯"[d]})}
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function opts(el,arr,first){el.innerHTML=(first?'<option value="">'+first+'</option>':'')+arr.map(function(a){return '<option>'+esc(a)+'</option>'}).join("")}
+function ready(d){if(!d.ld)return true;return (Date.now()-new Date(d.ld).getTime())/864e5>=90}
+function chips(){
+  $("tabs").innerHTML=["সব"].concat(Object.keys(D)).map(function(x,i){var v=i?x:"";return '<button class="t'+(v===st.dist?' on':'')+'" data-v="'+v+'">'+x+'</button>'}).join("");
+  var base=donors.filter(function(d){return !st.dist||d.dist===st.dist});
+  $("groups").innerHTML=["সব"].concat(BG).map(function(x,i){var v=i?x:"";var n=v?base.filter(function(d){return d.bg===v}).length:base.length;return '<button class="g'+(v===st.bg?' on':'')+'" data-v="'+v+'">'+x+'<small>'+bn(n)+'</small></button>'}).join("");
+  var ups=st.dist?D[st.dist]:[].concat.apply([],Object.keys(D).map(function(k){return D[k]}));
+  opts($("up"),ups,"📍 সব উপজেলা");$("up").value=ups.indexOf(st.up)>-1?st.up:"";st.up=$("up").value;
+  $("comp").classList.toggle("show",!!st.bg);
+  if(!st.bg)st.comp=false;
+  $("cb").checked=st.comp;$("cbt").textContent=st.bg?st.bg+" রোগীকে দিতে পারবেন এমন সব গ্রুপও দেখান":"";
+}
+function render(){
+  chips();
+  var q=st.q.toLowerCase(),ok=st.bg?(st.comp?COMP[st.bg]:[st.bg]):null;
+  var l=donors.filter(function(d){return(!st.dist||d.dist===st.dist)&&(!ok||ok.indexOf(d.bg)>-1)&&(!st.up||d.up===st.up)&&(!q||String(d.name).toLowerCase().indexOf(q)>-1)});
+  l.sort(function(a,b){return ready(b)-ready(a)});
+  $("c1").textContent=bn(l.length);
+  $("c2").textContent=bn(new Set(l.map(function(d){return d.up})).size);
+  $("c3").textContent=bn(new Set(l.map(function(d){return d.bg})).size);
+  $("hint").textContent=bn(l.length)+" জন";
+  $("list").innerHTML=l.length?l.map(function(d,i){
+    var p=String(d.phone||"").replace(/\D/g,""),w="880"+p.replace(/^0/,""),r=ready(d);
+    return '<div class="d" style="animation-delay:'+Math.min(i,10)*30+'ms"><div class="top"><div class="av">'+esc(String(d.name).charAt(0))+'</div><div class="info"><div class="nm">'+esc(d.name)+'</div><div class="lc">📍 '+esc(d.up)+', '+esc(d.dist)+'</div></div><div class="bg">'+esc(d.bg)+'</div></div><div class="mid"><span class="badge '+(r?'ok">✅ রক্ত দিতে পারবেন':'wt">⏳ কিছুদিন পরে')+'</span><div class="acts"><a class="ic c" href="tel:'+p+'" >📞 কল</a><a class="ic wa" href="https://wa.me/'+w+'" target="_blank" rel="noopener">💬 WhatsApp</a></div></div></div>'
+  }).join(""):'<div class="empty"><div style="font-size:40px">🩸</div><div style="font-weight:600;margin-top:6px">কোনো দাতা পাওয়া যায়নি</div><div style="font-size:14px">ফিল্টার বদলে দেখুন, অথবা প্রথম দাতা হিসেবে নাম লিখুন।</div></div>';
+}
+$("tbl").innerHTML=BG.map(function(g){return '<tr><td>'+g+'</td><td>নিতে পারে: '+COMP[g].join(", ")+'</td></tr>'}).join("");
+$("tabs").onclick=function(e){var b=e.target.closest("button");if(!b)return;st.dist=b.dataset.v;render()};
+$("groups").onclick=function(e){var b=e.target.closest("button");if(!b)return;st.bg=b.dataset.v;render()};
+$("up").onchange=function(){st.up=this.value;render()};
+$("q").oninput=function(){st.q=this.value.trim();render()};
+$("cb").onchange=function(){st.comp=this.checked;render()};
+function fu(){opts($("fu"),D[$("fd").value])}
+opts($("fb"),BG);opts($("fd"),Object.keys(D));fu();$("fd").onchange=fu;
+function open(){$("err").textContent="";$("ov").classList.add("show")}
+$("add").onclick=open;$("add2").onclick=open;
+$("cancel").onclick=function(){$("ov").classList.remove("show")};
+$("ov").onclick=function(e){if(e.target===this)this.classList.remove("show")};
+function toast(){var t=$("toast");t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2600)}
+$("save").onclick=async function(){
+  var name=$("fn").value.trim(),ph=$("fp").value.trim();
+  if(name.length<2){$("err").textContent="নাম লিখুন।";return}
+  if(!/^01[3-9]\d{8}$/.test(ph)){$("err").textContent="সঠিক মোবাইল নম্বর দিন।";return}
+  if(donors.some(function(d){return d.phone===ph})){$("err").textContent="এই নম্বর আগে থেকেই নিবন্ধিত।";return}
+  var rec={name:name,bg:$("fb").value,dist:$("fd").value,up:$("fu").value,phone:ph,ld:$("fl").value||"",ts:Date.now()};
+  try{
+    if(col){await col.doc(rec.phone).set(rec)}else{donors.unshift(rec);try{localStorage.setItem(KEY,JSON.stringify(donors))}catch(e){}render()}
+    $("ov").classList.remove("show");$("fn").value="";$("fp").value="";$("fl").value="";toast();
+  }catch(e){$("err").textContent=(e&&e.code==="permission-denied")?"এই নম্বর আগে থেকেই নিবন্ধিত, অথবা তথ্য সঠিক নয়।":"সংরক্ষণ করা যায়নি। ইন্টারনেট দেখে আবার চেষ্টা করুন।"}
+};
+$("list").onclick=function(e){var a=e.target.closest("a[data-call]");if(!a)return;e.preventDefault();$("cn").textContent=a.dataset.nm;$("cp").textContent=a.dataset.call;$("ct").href="tel:"+a.dataset.call;$("ccopy").dataset.p=a.dataset.call;$("ccopy").textContent="📋 নম্বর কপি";$("cov").classList.add("show")};
+$("cclose").onclick=function(){$("cov").classList.remove("show")};
+$("ct").onclick=function(e){e.preventDefault();var u=this.href,t=$("ccopy");try{window.open(u,"_blank")}catch(x){}try{window.top.location.href=u}catch(x){}setTimeout(function(){t.textContent="📋 নম্বর কপি করে ডায়ালারে পেস্ট করুন"},700)};
+$("cov").onclick=function(e){if(e.target===this)this.classList.remove("show")};
+$("ccopy").onclick=function(){var b=this,p=b.dataset.p;try{navigator.clipboard.writeText(p).then(function(){b.textContent="✅ কপি হয়েছে"},function(){b.textContent="নম্বরটি চেপে ধরে কপি করুন"})}catch(x){b.textContent="নম্বরটি চেপে ধরে কপি করুন"}};
+try{donors=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){}
+render();
+var FB={apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT_ID.firebaseapp.com",projectId:"YOUR_PROJECT_ID"};
+try{if(FB.apiKey!=="YOUR_API_KEY"&&window.firebase){firebase.initializeApp(FB);col=firebase.firestore().collection("donors");col.orderBy("ts","desc").limit(500).onSnapshot(function(s){donors=s.docs.map(function(x){return x.data()});render()},function(){})}}catch(e){}
+if(!col)$("demo").style.display="block";
+</script>
+</body>
+</html>
